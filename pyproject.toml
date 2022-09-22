@@ -1,0 +1,27 @@
+[build-system]
+requires = ['setuptools']
+build-backend = 'setuptools.build_meta'
+
+[project]
+name = 'lifehacks.objects'
+version = '0.99.99'
+authors = [
+  { name='mightbesimon' },
+]
+description = 'Clist'
+readme = 'README.md'
+license = { file='LICENSE.md' }
+requires-python = '>=3.7'
+classifiers = [
+    'Intended Audience :: Developers',
+    'License :: Other/Proprietary License',
+    'Operating System :: OS Independent',
+    'Programming Language :: Python :: 3',
+    'Topic :: Software Development',
+    'Typing :: Typed',
+]
+
+[project.urls]
+'Homepage' = 'https://mightbesimon.com'
+'Source Code' = 'https://github.com/mightbesimon/lifehacks.objects'
+'Documentation' = 'https://github.com/mightbesimon/lifehacks.objects/#readme'
