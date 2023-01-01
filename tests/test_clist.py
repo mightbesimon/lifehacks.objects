@@ -26,8 +26,8 @@ class Point:
 class TestClistInit(TestCase):
 
 	def test_init_none(self) -> None:
-		cl1 = Clist()
-		cl2 = Clist(None)
+		cl1 = Clist()      # type:ignore
+		cl2 = Clist(None)  # type:ignore
 		self.assertEqual(cl1, [])
 		self.assertEqual(cl2, [])
 

@@ -7,33 +7,36 @@
 '''
 
 from __future__ import annotations
-from typing import Any, Callable, Generic, Iterable, Iterator, TypeVar
+from typing import Any, Callable, Iterable, Iterator, TypeVar
 
 
 T = TypeVar('T')
 Tout = TypeVar('Tout')
 
 
-class Clist(Generic[T], Iterable):
+class Clist(Iterable[T]):
 	'''
 	'''
-	def __init__(self, *args:T|Iterable|dict|None|Ellipsis) -> None:
-		self.items:list[T] = []
+	def __init__(self, *args:T|Iterable[T]|dict[Any, Any]|None) -> None:
+		self.items: list[T] = []
 
-		if len(args)==1 and (args[0] is None or args[0] is ...):
+		if not len(args):
 			return
 
-		if len(args)==1 and isinstance(args[0], dict):
-			self.items = [ (key, value)
-				for key, value in args[0].items()
+		if (args[0] is None or args[0] is ...):
+			return
+
+		if isinstance(args[0], dict):
+			self.items = [ (key, value)  # type:ignore
+				for key, value in args[0].items()  # type:ignore
 			]
 			return
 
-		if len(args)==1 and isinstance(args[0], Iterable):
-			self.items = list(args[0])
+		if isinstance(args[0], Iterable):
+			self.items = list(args[0])  # type:ignore
 			return
 
-		self.items = list(args)
+		self.items = list(args)  # type:ignore
 
 ######################   self-chaining   #######################
 
